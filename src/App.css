@@ -1,38 +1,205 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
+  --primary-color:  #7D5136;
+  --secondary-color: #FE4A49;
+  --background-color: #310808;
+  --text-color: #faf8f7; /* Brown text color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: var(--font-montserrat);
+  background-color: var(--background-color);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
+  padding: 3rem;
+
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
+}
+
+h1 {
+  font-size: 3.5rem;
+  letter-spacing: 1px;
+  color: var(--text-color); /* Brown text color */
+  width: fit-content;
+}
+
+
+.search {
+  width: 65%;
+  margin: 3rem 0 1.5rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 2rem;
+  background: #FFC56E; /* Brighter background color */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.search input {
+  flex: 1;
+  border: none;
+  font-size: 1.25rem;
+  font-family: var(--font-open-sans);
+  font-weight: 400;
+  padding-right: 1rem;
+  outline: none;
+  color: #2e2c2c; /* Brighter text color */
+  background: transparent; /* Transparent input background */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.search img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.empty {
+  width: 100%;
+  margin-top: 2.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty h2 {
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  font-family: var(--font-open-sans);
+}
+
+.container {
+  width: 100%;
+  margin-top: 2.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movie {
+  width: 320px;
+  height: 460px;
+  margin: 1rem;
+
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: none;
+
+  transition: all 0.3s ease;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.movie div:nth-of-type(1) {
+  position: absolute;
+  padding: 14px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  color: var(--secondary-color);
+}
+
+.movie:hover {
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.movie div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.movie div:nth-of-type(3) {
+  z-index: 2;
+  background-color: var(--primary-color);
+  padding: 12px 20px 20px;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.movie div:nth-of-type(3) span {
+  font-family: var(--font-open-sans);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-color); /* Brown text color */
+}
+
+.movie div:nth-of-type(3) h3 {
+  margin-top: 4px;
+  font-family: var(--font-montserrat);
+  color: var(--secondary-color);
+}
+
+.movie:hover div:nth-of-type(2) {
+  opacity: 0.7;
+}
+
+.movie:hover div:nth-of-type(1) {
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    padding: 3rem 1.5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .search {
+    padding: 1rem 1.5rem;
+    width: 90%;
   }
+
+  .search input {
+    font-size: 1rem;
+  }
+
+  .search img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .app {
+    padding: 3rem 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .container {
+    margin-top: 2rem;
+  }
+
+  .movie {
+    width: 100%;
+    margin: 0.75rem;
+  }
+  
+}
+.history{
+  color: #FFC56E;
 }
